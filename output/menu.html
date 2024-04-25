@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+body {font-family: Arial;}
+
+.tab {
+	overflow: hidden;
+	border: 1px solid #ccc;
+	background-color: #f1f1f1;
+}
+
+.tab button {
+	overflow: hidden;
+	border: 1px solid #ccc;
+	background-color: #ddd;
+	float: left;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 16px;
+	transition: 0.3s;
+	font-size: 17px;
+	display: block;
+	width: 100%;
+}
+
+.tab button:hover {
+	background-color: #808080;
+}
+
+</style>
+<title>menu</title>
+</head>
+<body>
+<h1>Здравствуйте! Выберите один из предложенных вариантов.</h1>
+<div class="tab">
+	<button onclick="document.location='/F1/'">Test1</button>
+	<button onclick="document.location='/F2/'">Test2</button>
+	<button onclick="document.location='/F3/'">Test3</button>
+</div>
+</body>
+</html>

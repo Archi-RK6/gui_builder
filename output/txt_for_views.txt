@@ -1,0 +1,356 @@
+#Ниже представлен код, который должен быть вставлен в файл views.py
+
+
+def menu(request):
+	return render(request, "menu.html")
+
+
+def input1(request):
+	if request.method == "POST":
+		if request.POST["x"]:
+			x = request.POST["x"]
+			new_data = ''
+			input = open('/home/app/web/input/input1', 'r', encoding='utf-8')
+			input_f = File(input)
+			old_data = input_f.readlines()
+			for l in old_data:
+				if l.find('//Параметр X\n') != -1:
+					l = 'x=' + x + '//Параметр X\n'
+				new_data = new_data + str(l)
+			output = open('/home/app/web/input/input1', 'w', encoding='utf-8')
+			output_f = File(output)
+			output_f.write(new_data)
+			input_f.close()
+			input.close()
+			output_f.close()
+			output.close()
+
+		if request.POST["y"]:
+			y = request.POST["y"]
+			new_data = ''
+			input = open('/home/app/web/input/input1', 'r', encoding='utf-8')
+			input_f = File(input)
+			old_data = input_f.readlines()
+			for l in old_data:
+				if l.find('//Параметр Y\n') != -1:
+					l = 'y=' + y + '//Параметр Y\n'
+				new_data = new_data + str(l)
+			output = open('/home/app/web/input/input1', 'w', encoding='utf-8')
+			output_f = File(output)
+			output_f.write(new_data)
+			input_f.close()
+			input.close()
+			output_f.close()
+			output.close()
+
+		if "box1" in request.POST:
+			box1 = '1'
+		else:
+			box1= '0'
+		new_data = ''
+		input = open('/home/app/web/input/input1', 'r', encoding='utf-8')
+		input_f = File(input)
+		old_data = input_f.readlines()
+		for l in old_data:
+			if l.find('//Флажок 1\n') != -1:
+				l = 'box1=[' + box1 + ']{0|1}//Флажок 1\n'
+			new_data = new_data + str(l)
+		output = open('/home/app/web/input/input1', 'w', encoding='utf-8')
+		output_f = File(output)
+		output_f.write(new_data)
+		input_f.close()
+		input.close()
+		output_f.close()
+		output.close()
+
+		if "box2" in request.POST:
+			box2 = '1'
+		else:
+			box2= '0'
+		new_data = ''
+		input = open('/home/app/web/input/input1', 'r', encoding='utf-8')
+		input_f = File(input)
+		old_data = input_f.readlines()
+		for l in old_data:
+			if l.find('//Флажок 2\n') != -1:
+				l = 'box2=[' + box2 + ']{0|1}//Флажок 2\n'
+			new_data = new_data + str(l)
+		output = open('/home/app/web/input/input1', 'w', encoding='utf-8')
+		output_f = File(output)
+		output_f.write(new_data)
+		input_f.close()
+		input.close()
+		output_f.close()
+		output.close()
+
+		if request.POST["q"]:
+			q = request.POST["q"]
+			new_data = ''
+			input = open('/home/app/web/input/input1', 'r', encoding='utf-8')
+			input_f = File(input)
+			old_data = input_f.readlines()
+			for l in old_data:
+				if l.find('//Параметр Q\n') != -1:
+					l = 'q=' + q + '//Параметр Q\n'
+				new_data = new_data + str(l)
+			output = open('/home/app/web/input/input1', 'w', encoding='utf-8')
+			output_f = File(output)
+			output_f.write(new_data)
+			input_f.close()
+			input.close()
+			output_f.close()
+			output.close()
+
+		if "box3" in request.POST:
+			box3 = '1'
+		else:
+			box3= '0'
+		new_data = ''
+		input = open('/home/app/web/input/input1', 'r', encoding='utf-8')
+		input_f = File(input)
+		old_data = input_f.readlines()
+		for l in old_data:
+			if l.find('//Флажок 3\n') != -1:
+				l = 'box3=[' + box3 + ']{0|1}//Флажок 3\n'
+			new_data = new_data + str(l)
+		output = open('/home/app/web/input/input1', 'w', encoding='utf-8')
+		output_f = File(output)
+		output_f.write(new_data)
+		input_f.close()
+		input.close()
+		output_f.close()
+		output.close()
+
+		if "ParametersFile" in request.FILES:
+			ParametersFile = request.FILES["ParametersFile"]
+			fs = FileSystemStorage()
+			filename = fs.save(ParametersFile.name, ParametersFile)
+			file_url = fs.url(filename)
+
+		return render(request, "input1.html")
+	return render(request, "input1.html")
+
+
+def input2(request):
+	if request.method == "POST":
+		if request.POST["X"]:
+			X = request.POST["X"]
+			new_data = ''
+			input = open('/home/app/web/input/input2', 'r', encoding='utf-8')
+			input_f = File(input)
+			old_data = input_f.readlines()
+			for l in old_data:
+				if l.find('//Параметр X\n') != -1:
+					l = 'X=' + X + '//Параметр X\n'
+				new_data = new_data + str(l)
+			output = open('/home/app/web/input/input2', 'w', encoding='utf-8')
+			output_f = File(output)
+			output_f.write(new_data)
+			input_f.close()
+			input.close()
+			output_f.close()
+			output.close()
+
+		if request.POST["Y"]:
+			Y = request.POST["Y"]
+			new_data = ''
+			input = open('/home/app/web/input/input2', 'r', encoding='utf-8')
+			input_f = File(input)
+			old_data = input_f.readlines()
+			for l in old_data:
+				if l.find('//Параметр Y\n') != -1:
+					l = 'Y=' + Y + '//Параметр Y\n'
+				new_data = new_data + str(l)
+			output = open('/home/app/web/input/input2', 'w', encoding='utf-8')
+			output_f = File(output)
+			output_f.write(new_data)
+			input_f.close()
+			input.close()
+			output_f.close()
+			output.close()
+
+		if "box1" in request.POST:
+			box1 = '1'
+		else:
+			box1= '0'
+		new_data = ''
+		input = open('/home/app/web/input/input2', 'r', encoding='utf-8')
+		input_f = File(input)
+		old_data = input_f.readlines()
+		for l in old_data:
+			if l.find('//Флажок 1\n') != -1:
+				l = 'box1=[' + box1 + ']{0|1}//Флажок 1\n'
+			new_data = new_data + str(l)
+		output = open('/home/app/web/input/input2', 'w', encoding='utf-8')
+		output_f = File(output)
+		output_f.write(new_data)
+		input_f.close()
+		input.close()
+		output_f.close()
+		output.close()
+
+		if "box2" in request.POST:
+			box2 = '1'
+		else:
+			box2= '0'
+		new_data = ''
+		input = open('/home/app/web/input/input2', 'r', encoding='utf-8')
+		input_f = File(input)
+		old_data = input_f.readlines()
+		for l in old_data:
+			if l.find('//Флажок 2\n') != -1:
+				l = 'box2=[' + box2 + ']{0|1}//Флажок 2\n'
+			new_data = new_data + str(l)
+		output = open('/home/app/web/input/input2', 'w', encoding='utf-8')
+		output_f = File(output)
+		output_f.write(new_data)
+		input_f.close()
+		input.close()
+		output_f.close()
+		output.close()
+
+		if "box3" in request.POST:
+			box3 = '1'
+		else:
+			box3= '0'
+		new_data = ''
+		input = open('/home/app/web/input/input2', 'r', encoding='utf-8')
+		input_f = File(input)
+		old_data = input_f.readlines()
+		for l in old_data:
+			if l.find('//Флажок 3\n') != -1:
+				l = 'box3=[' + box3 + ']{0|1}//Флажок 3\n'
+			new_data = new_data + str(l)
+		output = open('/home/app/web/input/input2', 'w', encoding='utf-8')
+		output_f = File(output)
+		output_f.write(new_data)
+		input_f.close()
+		input.close()
+		output_f.close()
+		output.close()
+
+		if "ffile" in request.FILES:
+			ffile = request.FILES["ffile"]
+			fs = FileSystemStorage()
+			filename = fs.save(ffile.name, ffile)
+			file_url = fs.url(filename)
+
+		if "box4" in request.POST:
+			box4 = '1'
+		else:
+			box4= '0'
+		new_data = ''
+		input = open('/home/app/web/input/input2', 'r', encoding='utf-8')
+		input_f = File(input)
+		old_data = input_f.readlines()
+		for l in old_data:
+			if l.find('//Флажок\n') != -1:
+				l = 'box4=[' + box4 + ']{0|1}//Флажок\n'
+			new_data = new_data + str(l)
+		output = open('/home/app/web/input/input2', 'w', encoding='utf-8')
+		output_f = File(output)
+		output_f.write(new_data)
+		input_f.close()
+		input.close()
+		output_f.close()
+		output.close()
+
+		if request.POST["z"]:
+			z = request.POST["z"]
+			new_data = ''
+			input = open('/home/app/web/input/input2', 'r', encoding='utf-8')
+			input_f = File(input)
+			old_data = input_f.readlines()
+			for l in old_data:
+				if l.find('//Параметр Z\n') != -1:
+					l = 'z=' + z + '//Параметр Z\n'
+				new_data = new_data + str(l)
+			output = open('/home/app/web/input/input2', 'w', encoding='utf-8')
+			output_f = File(output)
+			output_f.write(new_data)
+			input_f.close()
+			input.close()
+			output_f.close()
+			output.close()
+
+		return render(request, "input2.html")
+	return render(request, "input2.html")
+
+
+def input3(request):
+	if request.method == "POST":
+		if request.POST["x"]:
+			x = request.POST["x"]
+			new_data = ''
+			input = open('/home/app/web/input/input3', 'r', encoding='utf-8')
+			input_f = File(input)
+			old_data = input_f.readlines()
+			for l in old_data:
+				if l.find('//Параметр X\n') != -1:
+					l = 'x=' + x + '//Параметр X\n'
+				new_data = new_data + str(l)
+			output = open('/home/app/web/input/input3', 'w', encoding='utf-8')
+			output_f = File(output)
+			output_f.write(new_data)
+			input_f.close()
+			input.close()
+			output_f.close()
+			output.close()
+
+		if request.POST["y"]:
+			y = request.POST["y"]
+			new_data = ''
+			input = open('/home/app/web/input/input3', 'r', encoding='utf-8')
+			input_f = File(input)
+			old_data = input_f.readlines()
+			for l in old_data:
+				if l.find('//Параметр Y\n') != -1:
+					l = 'y=' + y + '//Параметр Y\n'
+				new_data = new_data + str(l)
+			output = open('/home/app/web/input/input3', 'w', encoding='utf-8')
+			output_f = File(output)
+			output_f.write(new_data)
+			input_f.close()
+			input.close()
+			output_f.close()
+			output.close()
+
+		if request.POST["z"]:
+			z = request.POST["z"]
+			new_data = ''
+			input = open('/home/app/web/input/input3', 'r', encoding='utf-8')
+			input_f = File(input)
+			old_data = input_f.readlines()
+			for l in old_data:
+				if l.find('//Параметр Z\n') != -1:
+					l = 'z=' + z + '//Параметр Z\n'
+				new_data = new_data + str(l)
+			output = open('/home/app/web/input/input3', 'w', encoding='utf-8')
+			output_f = File(output)
+			output_f.write(new_data)
+			input_f.close()
+			input.close()
+			output_f.close()
+			output.close()
+
+		if request.POST["q"]:
+			q = request.POST["q"]
+			new_data = ''
+			input = open('/home/app/web/input/input3', 'r', encoding='utf-8')
+			input_f = File(input)
+			old_data = input_f.readlines()
+			for l in old_data:
+				if l.find('//Параметр Q\n') != -1:
+					l = 'q=' + q + '//Параметр Q\n'
+				new_data = new_data + str(l)
+			output = open('/home/app/web/input/input3', 'w', encoding='utf-8')
+			output_f = File(output)
+			output_f.write(new_data)
+			input_f.close()
+			input.close()
+			output_f.close()
+			output.close()
+
+		return render(request, "input3.html")
+	return render(request, "input3.html")
+

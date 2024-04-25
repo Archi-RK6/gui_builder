@@ -1,0 +1,9 @@
+#Ниже представлен код, который должен быть вставлен в файл urls.py в список urlpatterns
+
+	path("", menu, name="menu"),
+	path("F1/", input1, name="input1"),
+	path("F2/", input2, name="input2"),
+	path("F3/", input3, name="input3"),
+
+#Также вставьте следующую строку в файл urls.py до списка urlpatterns
+from upload.views import menu, input1, input2, input3

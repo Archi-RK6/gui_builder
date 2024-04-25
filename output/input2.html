@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial;}
+
+.tab {
+	overflow: hidden;
+	border: 1px solid #ccc;
+	background-color: #f1f1f1;
+}
+
+.tab button, .clickable {
+	float: left;
+border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 16px;
+	transition: 0.3s;
+	font-size: 17px;
+}
+
+.tab button:hover, .clickable:hover {
+	background-color: #ddd;
+}
+
+.tab button.active {
+	background-color: #ccc;
+}
+
+.tabcontent {
+	display: none;
+	padding: 6px 12px;
+	border: 1px solid #ccc;
+	border-top: none;
+}
+</style>
+<title>Test2</title>
+</head>
+<body>
+ 
+<div class="tab">
+	<button class="tablinks" onclick="tabs(event,'section_0')" id="defaultOpen">Вкладка 1</button>
+	<button class="tablinks" onclick="tabs(event,'section_1')">Вкладка 2</button>
+	<button class="tablinks" onclick="tabs(event,'section_2')">Вкладка 3</button>
+</div>
+
+<form method="post" enctype="multipart/form-data">
+
+{% csrf_token %}
+<div id="section_0" class="tabcontent">
+	<p><b>Параметр X</b><br>
+	<input type="text" name="X" value="VX"></p>
+	<p><b>Параметр Y</b><br>
+	<input type="text" name="Y" value="25"></p>
+	<p><input type="checkbox" name="box1" value="box1">Флажок 1</p>
+	<p><input type="checkbox" name="box2" value="box2" checked>Флажок 2</p>
+</div>
+
+<div id="section_1" class="tabcontent">
+	<p><input type="checkbox" name="box3" value="box3">Флажок 3</p>
+	<p><b>Выберите имя файла</b><br>
+	<input type="file" name="ffile"></p>
+	<p><a href="https://www.youtube.com">Ссылка на YouTube</a></p>
+</div>
+
+<div id="section_2" class="tabcontent">
+	<p><input type="checkbox" name="box4" value="box4">Флажок</p>
+	<p><b>Параметр Z</b><br>
+	<input type="text" name="z" value="123"></p>
+</div>
+
+<p><input class="clickable" type="submit"></p>
+</form>
+<br>
+<br>
+<br>
+<button class="clickable" onclick="document.location='/'">Назад</button>
+
+<script>
+function tabs(evt, tab_id) {
+	var i, tabcontent, tablinks;
+	tabcontent = document.getElementsByClassName("tabcontent");
+	for (i = 0; i < tabcontent.length; i++) {
+		tabcontent[i].style.display = "none";
+	}
+	tablinks = document.getElementsByClassName("tablinks");
+	for (i = 0; i < tablinks.length; i++) {
+		tablinks[i].className = tablinks[i].className.replace(" active", "");
+	}
+	document.getElementById(tab_id).style.display = "block";
+	evt.currentTarget.className += " active";
+}
+
+document.getElementById("defaultOpen").click();
+</script>
+
+</body>
+</html>
